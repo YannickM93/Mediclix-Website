@@ -1,0 +1,37 @@
+---
+import platformMobile from '../../public/platform-mobile.png'
+import platformDesktop from '../../public/platform-desktop.png'
+import { Image } from 'astro:assets'
+
+---
+
+
+<main class="bgr flex text-white justify-center border-t-[1px] border-[#26E1FF] xl:p-[100px] " id="konzept">
+    <div class="lg:w-[80%] w-[100%] flex flex-col justify-center items-center">
+        <div class="flex flex-col justify-center lg:items-center items-stretch gap-[16px] lg:px-[20%] px-5 pt-10">
+            <div class="text-md pill-shape w-fit m-auto lg:m-0 text-[14px]">KONZEPT</div>
+            <h1 class="text-center lg:text-5xl text-[32px]/[130%]">Arbeiten Sie gemeinsam mit Ihren Partnern auf einer zentralen Plattform.</h1>
+            <a href="https://meetings-eu1.hubspot.com/y-michels1/mediclixcare-demo" class="!text-[#041437]"> <button class="demo-button mt-[16px] text-black w-full" aria-label="demo-buchen">Demo buchen</button></a> 
+        </div>
+        <div class=" w-full justify-center items-center p-3 hidden lg:flex">
+            <Image  src={platformDesktop} alt="mediclix-platform-image" loading={"lazy"} decoding={'async'}>
+        </div>
+        <div class=" w-full justify-center items-center p-10 flex lg:hidden">
+            <Image  src={platformMobile} alt="mediclix-platform-image-mobile" loading={"lazy"} decoding={'async'}>
+        </div>
+    </div>
+</main>
+
+<style>
+.bgr {
+    background: linear-gradient(180deg, #0D2968 0%, rgba(1, 11, 35, 0.00) 100%);
+
+}
+</style>
+
+
+
+
+
+
+

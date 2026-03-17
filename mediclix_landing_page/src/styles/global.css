@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* archivo-regular - latin */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: "Archivo";
+	font-style: normal;
+	font-weight: 400;
+	src: url("../fonts/archivo-v19-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* archivo-700 - latin */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: "Archivo";
+	font-style: normal;
+	font-weight: 700;
+	src: url("../fonts/archivo-v19-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 14px 32px;
+	border-radius: 99px;
+	border: 1px solid #c1efff;
+	text-align: center;
+	white-space: nowrap;
+	font-family: Archivo;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	cursor: pointer;
+}
+
+.pill-shape {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.75rem 1.5rem;
+	border-radius: 99px;
+	border: 1px solid #c1efff;
+	text-align: center;
+	font-family: Archivo;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+}
+
+.demo-button {
+	background: radial-gradient(
+		331.29% 126.23% at 12.03% 22.64%,
+		#c1efff 0%,
+		#26e1ff 100%
+	);
+	color: black;
+}
+
+.produkt-list-item {
+	background: linear-gradient(
+		259deg,
+		rgba(13, 41, 104, 0.8) 0.66%,
+		rgba(1, 11, 35, 0.8) 100.3%
+	);
+	backdrop-filter: blur(32px);
+	border-radius: 24px;
+	border: 2px solid rgba(38, 225, 255, 0.24);
+}
+
+.link {
+	color: #c1efff;
+	font-feature-settings: "liga" off;
+	/* Components/md-link */
+	font-family: Archivo;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 150%; /* 27px */
+	text-decoration: none;
+}
+
+p {
+	color: #c1efff;
+	opacity: 60%;
+}

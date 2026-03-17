@@ -1,0 +1,37 @@
+---
+import ProduktList from "./JSX/ProduktList";
+
+
+---
+
+
+<main class="flex text-white bg-[#041437] justify-center py-20 xl:py-50 flex-col items-center relative" id="features">
+  <div class="circle absolute"></div>
+    <div class="xl:w-[80%] w-[100%] flex flex-col gap-5 xl:gap-0">
+        <div class="m-auto xl:m-0">
+           <div class="pill-shape w-fit mb-[14px] text-[14px]">FEATURES</div>
+        </div>
+        <div class=" w-full flex justify-between items-center xl:flex-row flex-col">
+          <h1 class="xl:text-6xl text-[32px] text-center">Weniger Aufwand mehr Wirkung.<h1/>
+          <a href="https://meetings-eu1.hubspot.com/y-michels1/mediclixcare-demo" class="!text-[#041437]"> <button  class="demo-button mt-5 xl:m-0" aria-label="demo-buchen">Demo buchen</button></a> 
+        </div>
+        <ProduktList client:load />
+    </div>
+   
+</main>
+
+<style>
+  .circle {
+background: #26E1FF;
+background-blend-mode: multiply;
+filter: blur(160px);
+position: absolute;
+width: 216px;
+  height: 166px;
+  top:  250px; 
+  right: 0;
+border-radius: 466px;
+}
+</style>
+
+

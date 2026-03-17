@@ -1,0 +1,20 @@
+---
+import FAQList from "./JSX/FAQList";
+
+
+---
+
+<div class="bg-[#041437] flex justify-center lg:p-50 pt-0 p-5 lg:px-0">
+    <section class="background lg:w-[80%] w-[100%] rounded-2xl  p-10 xl:py-[64px] flex flex-col justify-center items-center ">
+        <div class="flex flex-col justify-center items-center mb-[48px] gap-[14px]">
+            <div class="text-[14px] pill-shape !border-[#041437]">FAQ</div>
+        <h1 class="lg:text-6xl text-[32px] text-center lg:text-left">Häufig gestellte Fragen</h1>
+        </div>
+      <FAQList client:visible />
+    </section>
+</div>
+<style>
+    .background {
+        background: radial-gradient(41.3% 41.28% at 50% 0%, rgba(255, 255, 255, 0.64) 0%, rgba(255, 255, 255, 0.00) 100%), #C1EFFF
+    }
+</style>

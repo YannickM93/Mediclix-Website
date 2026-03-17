@@ -1,0 +1,123 @@
+pool:
+  name: Azure Pipelines
+trigger:
+  tags:
+    include:
+      - "*"
+  branches:
+    include:
+      - main
+
+pr: none
+variables:
+  - name: containerRegistry
+    value: "mediclix"
+  - name: imageRepository
+    value: "landing-page"
+  - name: dockerfilePath
+    value: "$(Build.SourcesDirectory)/docker/Dockerfile"
+  - name: tag
+    value: "$(Build.BuildNumber)"
+  - name: chartPath
+    value: "$(Build.SourcesDirectory)/landing-page-chart"
+
+stages:
+  - stage: Build_STAGE
+    displayName: Build staging image and push to registry
+    jobs:
+      - job: Build
+        displayName: Build staging
+        variables:
+          - group: mediclix-landing-staging
+        steps:
+          - task: Docker@2
+            displayName: BuildStage
+            inputs:
+              command: build
+              containerRegistry: $(containerRegistry)
+              repository: $(imageRepository)-staging
+              arguments: >
+                --build-arg PUBLIC_LOGIN=$(PUBLIC_LOGIN)
+                --cache-from=type=registry,ref=$(containerRegistry)/$(imageRepository):latest
+                --cache-to=type=inline
+              Dockerfile: $(dockerfilePath)
+              buildContext: $(Build.SourcesDirectory)
+              tags: |
+                $(tag)
+                latest
+          - task: Docker@2
+            displayName: Push
+            inputs:
+              command: push
+              containerRegistry: $(containerRegistry)
+              repository: $(imageRepository)-staging
+              tags: |
+                $(tag)
+                latest
+  - stage: Build_PROD
+    displayName: Build prod image and push to registry
+    jobs:
+      - job: Build
+        displayName: Build prod
+        variables:
+          - group: mediclix-landing-production
+        steps:
+          - task: Docker@2
+            displayName: BuildPROD
+            inputs:
+              command: build
+              containerRegistry: $(containerRegistry)
+              repository: $(imageRepository)-prod
+              arguments: >
+                --build-arg PUBLIC_LOGIN=$(PUBLIC_LOGIN)
+                --cache-from=type=registry,ref=$(containerRegistry)/$(imageRepository):latest
+                --cache-to=type=inline
+              Dockerfile: $(dockerfilePath)
+              buildContext: $(Build.SourcesDirectory)
+              tags: |
+                $(tag)
+                latest
+          - task: Docker@2
+            displayName: Push
+            inputs:
+              command: push
+              containerRegistry: $(containerRegistry)
+              repository: $(imageRepository)-prod
+              tags: |
+                $(tag)
+                latest
+  - stage: PackageHelmChart
+    displayName: "Package Helm Chart"
+    jobs:
+      - job: PackageChart
+        steps:
+          - checkout: self
+            displayName: "Checkout Repository"
+          - task: HelmInstaller@1
+            displayName: Helm installer
+            inputs:
+              helmVersionToInstall: '3.18.6'
+          - task: HelmDeploy@0
+            displayName: "Package Helm Chart"
+            inputs:
+              command: "package"
+              chartPath: "$(chartPath)"
+              destination: "$(Build.ArtifactStagingDirectory)/helm-charts"
+              version: "$(tag)"
+              appVersion: "$(tag)"
+          - task: PublishBuildArtifacts@1
+            inputs:
+              pathtoPublish: "$(Build.ArtifactStagingDirectory)/helm-charts"
+              artifactName: "helm-charts"
+              publishLocation: "Container"
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: "$(Build.SourcesDirectory)/landing-page-chart"
+              Contents: "*.yaml"
+              TargetFolder: "$(Build.ArtifactStagingDirectory)/yaml-files"
+          - task: PublishBuildArtifacts@1
+            displayName: "Publish YAML Files"
+            inputs:
+              pathtoPublish: "$(Build.ArtifactStagingDirectory)/yaml-files"
+              artifactName: "yaml-files"
+              publishLocation: "Container"

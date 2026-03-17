@@ -1,0 +1,28 @@
+releaseName: landing-page
+environment: staging
+namespace: mediclix
+image:
+  repository: mediclix.azurecr.io/landing-page-staging
+  tag: latest
+
+replicas: 1
+
+service:
+  name: landing-page-staging
+  port: 80
+
+deployment:
+  resources:
+    requests:
+      cpu: 10m
+      memory: 16Mi
+    limits:
+      cpu: 100m
+      memory: 128Mi
+
+ingress:
+  host: staging.mediclix-care.de
+  additionalHost: staging.mediclix.de
+  path: ""
+  clusterIssuer: letsencrypt-prod
+  secretName: landing-page-tls-secret

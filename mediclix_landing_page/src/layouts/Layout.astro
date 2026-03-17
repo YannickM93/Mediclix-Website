@@ -1,0 +1,41 @@
+---
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Willkommen bei Mediclix – Ihrer digitalen Plattform für moderne Gesundheitslösungen. Entdecken Sie unsere Leistungen und Services für Patienten und Praxen.">
+		<link rel="icon" type="image/svg+xml" href="/mcx-favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="preload" as="image" href="/mediclix-hero.webp">
+		<link rel="preload" as="image" href="/mediclix-hero-small.webp">
+		<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="84e46563-e774-49d6-ae40-f8c9fed5e835" data-blockingmode="auto" type="text/javascript"></script>
+		<link rel="preload" href="/fonts/archivo-v19-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/archivo-v19-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+		<title>Mediclix</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style>
+
+
+
+	body {
+		margin: 0;
+		background: #041437;
+		width: 100%;
+		height: 100%;
+	
+	}
+    * {
+        box-sizing: border-box;
+		font-family: 'Archivo', sans-serif;
+    }
+
+</style>

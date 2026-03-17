@@ -1,0 +1,4 @@
+apiVersion: v2
+name: landing-page-chart
+description: A Helm chart for Mediclix Care Landing Page
+version: 1.0.0

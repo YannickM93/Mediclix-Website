@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import heroImage from '../../public/mediclix-hero-group-compressed.webp'
+---
+
+<main class="flex text-white bg-[#041437] items-center justify-center xl:justify-end py-0 pb-10 xl:py-20 pl-0 flex-col xl:flex-row">
+<div class="w-[90%] flex flex-col xl:flex-row justify-end items-center ">
+    <div class="flex flex-col relative p-10">
+        <div class="circle hidden xl:block"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="2" viewBox="0 0 2 615" fill="none" class=" absolute top-[-30%] left-0 h-[calc(100%+100px)] hidden xl:block">
+            <path d="M1 0V615" stroke="#0D2968"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg"  height="2" viewBox="0 0 883 2" fill="none" class=" absolute hidden left-[-30%] top-8 w-[calc(100%+100px)] xl:block">
+                <path d="M0 1L883 1.00008" stroke="#0D2968"/>
+                </svg>
+        <h1 class=" xl:text-7xl text-[56px]/15 text-center xl:text-left mb-[32px]">Software für <br> Medikations <br> management</h1>
+        <p class="text-blue-200 xl:text-2xl text-[18px] not-italic font-normal text-center xl:text-left mb-[48px]">Eine Lösung für alle Leistungserbringer: Bestellwesen, Rezeptmanagement und ein zentraler Medikationsplan.</p>
+        <div class="flex flex-col xl:flex-row gap-4">
+            <a href="https://meetings-eu1.hubspot.com/y-michels1/mediclixcare-demo" class="!text-[#041437]"> <button class="demo-button w-full" aria-label="demo-buchen">Demo buchen</button></a> 
+            <a href="#konzept"><button class="w-full" aria-label="mehr-informationen">Mehr informationen</button></a>
+        </div>
+    </div>
+    <div class="pl-0 xl:px-0 relative">
+        <Image
+		src={heroImage}
+		alt="mediclix-hero-image"
+		loading="eager"
+		decoding="async"
+		fetchpriority="high"
+		class="w-full h-auto rounded-lg"
+	/>
+    </div>
+</div>
+  
+
+</main>
+
+<style>
+        .circle {
+      background: #26E1FF;
+      background-blend-mode: multiply;
+      filter: blur(160px);
+      position: absolute;
+      width: 166px;
+        height: 166px;
+        top: -150px; 
+        left: 80%;
+		border-radius: 466px;
+  }
+</style>
+
+
+

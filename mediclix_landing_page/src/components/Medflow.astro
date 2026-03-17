@@ -1,0 +1,93 @@
+---
+
+import { Image } from 'astro:assets'
+import banner from '../../public/profile-banner.png'
+import bannerm from '../../public/profile-banner-m.png'
+---
+
+
+<main class="flex text-white bg-[#041437] justify-center py-0 lg:py-25 flex-col items-center relative">
+    <div class="circle absolute"></div>
+    <section class="xl:w-[80%] w-[100%]  p-5 xl:p-0 flex flex-col xl:flex-row justify-between gap-10 items-center">
+     <div class="xl:w-[50%] w-[100%] p-0 flex flex-col items-center xl:items-start">
+        <div class=" uppercase pill-shape mb-[14px] text-[14px]" aria-label="uber-uns">Über Uns</div>
+        <h1 class="xl:text-6xl text-center xl:text-left text-[32px] mb-[24px]">Warum wir der richtige <br> Partner für Sie sind:</h1>
+        <p class="text-center font-extralight xl:text-left text-[16px]  xl:text-xl mb-[32px]">Unser Team bringt jahrzehntelange Erfahrung in der Pflegebranche mit. Es war uns immer ein Dorn im Auge, wie die Bestellprozesse für Arzneimittel ablaufen mussten. Wir haben es uns zur Aufgabe gemacht unsere Erfahrungen bestmöglich in MediclixCare einzubringen. Für uns war es ein gewaltiger Vorteil sowohl die Prozesse der Apotheken als auch die der Pflege in der Tiefe zu verstehen.</p>
+        <div class="flex gap-5 text-black mt-5 xl:m-0">
+            <div class=" bg-[#C1EFFF] rounded-md p-3 flex-1">
+                <h1 class="xl:text-[48px] text-[36px]">30+</h1>
+                <h5 class="xl:text-[16px] text-base text-[#041437]">Jahre Erfahrung in der Pflegebranche</h5>
+            </div>
+            <div class=" bg-[#C1EFFF] rounded-md p-3 flex-1 ">
+                <h1 class="xl:text-[48px] text-[36px]">6</h1>
+                <h5 class="xl:text-[16px] text-base text-[#041437]">Jahre Erfahrung im Apothekenwesen</h5>
+            </div>
+         </div>
+    </div>
+    <div class="bg-white  my-10 max-w-[600px] sm:w-fit self-center rounded-3xl">
+      <div class="hidden md:block">
+        <Image class="rounded-t-2xl" src={banner} decoding={'async'} alt={'Yannick'}>
+      </div>
+      <div class="md:hidden">
+        <Image class="rounded-t-2xl w-full " src={bannerm} decoding={'async'} alt={'Yannick'}>
+      </div>
+      <div class="px-[48px] pb-[40px]">
+        <div class="flex flex-col mb-[40px] items-center md:items-start mt-4">
+          <span class="text-[16px] md:text-[24px] text-[#266fff]">Geschäftsführer</span>
+          <h1 class="text-[25px] md:text-[32px] text-black font-semibold">Yannick Michels</h1>
+         </div>
+      <div class="flex flex-col gap-[63px]">
+        <div class="flex items-center gap-[16px] self-center md:self-start">
+          <div><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
+            <rect width="38" height="38" rx="19.5" fill="#C7EEFF"/>
+            <path d="M10 15C10 14.4696 10.2107 13.9609 10.5858 13.5858C10.9609 13.2107 11.4696 13 12 13H26C26.5304 13 27.0391 13.2107 27.4142 13.5858C27.7893 13.9609 28 14.4696 28 15V25C28 25.5304 27.7893 26.0391 27.4142 26.4142C27.0391 26.7893 26.5304 27 26 27H12C11.4696 27 10.9609 26.7893 10.5858 26.4142C10.2107 26.0391 10 25.5304 10 25V15Z" stroke="#266FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 15L19 21L28 15" stroke="#266FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg></div>
+          <span class="text-black text-[16px] md:text-[20px]"><a href="mailto:yannick.michels@mediclix.de">yannick.michels@mediclix.de</a> </span>
+        </div>
+        <div class="flex items-center gap-[16px] self-center md:self-start">
+          <div><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
+            <circle cx="19" cy="19" r="19" fill="#C7EEFF" />
+            
+            <g transform="translate(7,7)">
+              <g clip-path="url(#clip0)">
+                <path d="M9 11C9 11.7956 9.31607 12.5587 9.87868 13.1213C10.4413 13.6839 11.2044 14 12 14C12.7956 14 13.5587 13.6839 14.1213 13.1213C14.6839 12.5587 15 11.7956 15 11C15 10.2044 14.6839 9.44129 14.1213 8.87868C13.5587 8.31607 12.7956 8 12 8C11.2044 8 10.4413 8.31607 9.87868 8.87868C9.31607 9.44129 9 10.2044 9 11Z" stroke="#266FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17.657 16.6572L13.414 20.9002C13.039 21.2748 12.5306 21.4853 12.0005 21.4853C11.4704 21.4853 10.962 21.2748 10.587 20.9002L6.343 16.6572C5.22422 15.5384 4.46234 14.1129 4.15369 12.5611C3.84504 11.0092 4.00349 9.40071 4.60901 7.93893C5.21452 6.47714 6.2399 5.22774 7.55548 4.3487C8.87107 3.46967 10.4178 3.00049 12 3.00049C13.5822 3.00049 15.1289 3.46967 16.4445 4.3487C17.7601 5.22774 18.7855 6.47714 19.391 7.93893C19.9965 9.40071 20.155 11.0092 19.8463 12.5611C19.5377 14.1129 18.7758 15.5384 17.657 16.6572Z" stroke="#266FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <defs>
+                <clipPath id="clip0">
+                  <rect width="24" height="24" fill="white"/>
+                </clipPath>
+              </defs>
+            </g>
+          </svg>
+          </div>
+          <span class="text-black text-[16px] md:text-[20px]">Mediclix Group GmbH <br>
+            Rudolfplatz 3 <br>
+            50674 Köln</span>
+        </div>
+      </div>
+      </div>
+    </div>
+
+
+    </section>
+
+   
+</main>
+
+<style>
+    .circle {
+  background: #26E1FF;
+  background-blend-mode: multiply;
+  filter: blur(160px);
+  position: absolute;
+  width: 216px;
+    height: 166px;
+    top:  280px; 
+    left: 0;
+  border-radius: 466px;
+  }
+  </style>
+
+

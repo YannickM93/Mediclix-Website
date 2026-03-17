@@ -1,0 +1,28 @@
+releaseName: landing-page
+environment: prod
+namespace: mediclix
+image:
+  repository: mediclix.azurecr.io/landing-page-prod
+  tag: latest
+
+replicas: 2
+
+service:
+  name: landing-page-prod
+  port: 80
+
+deployment:
+  resources:
+    requests:
+      cpu: 10m
+      memory: 16Mi
+    limits:
+      cpu: 100m
+      memory: 128Mi
+
+ingress:
+  host: mediclix-care.de
+  additionalHost: mediclix.de
+  path: ""
+  clusterIssuer: letsencrypt-prod
+  secretName: landing-page-tls-secret
